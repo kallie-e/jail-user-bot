@@ -1,5 +1,3 @@
-/* note: original file name: kick.js */
-
 /*
 module.exports = message => {
   const member = message.mentions.members.first();
@@ -20,3 +18,7 @@ module.exports = message => {
     .catch(error => message.reply(`Sorry, an error occured.`));
 };
 */
+
+module.exports = (message) => {
+  return message.reply(`Aother test!`);
+}; 
