@@ -4,8 +4,7 @@ const globals    = require('../lib/globals');
 const jailMsg    = require('../lib/JailRandomPutList');
 
 module.exports = {
-  // TODO internationalize
-  // TODO should look for options.  if none, defaults to default bars
+  // !TODO internationalize
   // message.js looks for command. here, the message needs to be split into array.  [0]command [1]user [2+] options
   displayJailedCanvas: async (message, user, jailBarsImage) => {
     const canvasSize  = 300;
