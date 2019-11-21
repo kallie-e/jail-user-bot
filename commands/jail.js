@@ -2,9 +2,14 @@ module.exports = message => {
   const Discord = require('discord.js');
   const Canvas  = require('canvas');
 
+  // TODO clean up aand separate out code!
+
+  // TODO internationalize
+
+  // TODO all strings to file
+
   // what member shall we shove down the rabbit hole today?
   const member = message.mentions.members.first();
-  //console.log(member);
 
   // default command reminder
   const commandReminder = '!jail @<user>';
@@ -59,10 +64,13 @@ module.exports = message => {
     // Use helpful Attachment class structure to process the file for you
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'jailed-user-image.png');
 
-    // send it (for now ... TODO need to put back in main area)
-    message.channel.send( 'hello world', attachment );
-
-    //return attachment;
+    // send message with updated image
+    const userName = (user.nick) ? user.nick : user.username;
+    message.channel.send(`${userName} is very JAILED! XD
+Have an idea for a new image option?  Post it on our #jail-bot-suggestions channel on our Discord server, and we’ll look into it!`,
+attachment
+    )
+    .catch(`Error: ${console.error}`);
   };
 
   // member check first.  make sure there is a member listed.
@@ -77,17 +85,6 @@ module.exports = message => {
   } 
   else 
   {
-      const user = member.user;
-      const userName = (user.nick) ? user.nick : user.username;
-      const jailedCanvas = getJailedCanvas( user );
-
-      //message.channel.send('Hello', jailedCanvas); 
-
-      // send message with updated image
-//       message.channel.send(`${userName} is very JAILED! XD
-// Have an idea for a new image option?  Post it on our #jail-bot-suggestions channel on our Discord server, and we’ll look into it!`,
-// jailedCanvas
-//       )
-//       .catch(`Error: ${console.error}`);
+    getJailedCanvas( member.user );
   }
 };
