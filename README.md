@@ -5,31 +5,18 @@ https://github.com/thomlom/discord-bot-example
 
 ## Overview
 
-In a Discord server, sometimes you just wanna give someone a hard time … like putting someone in a virtual jail.  It’s a great way to blow off steam, and it can be downright hilarious for all involved and all who witness the event.
+In a Discord server, sometimes you just wanna give someone a hard time … like putting someone in a virtual jail.  It’s a great way to blow off steam, and it can be downright hilarious for all involved and all who witness the event. 
+
 There is currently a Discord bot that does this, but a) the jail feature is one of a vast array of features, and there are some NSFW features included in the bot, and b) as a dedicated focus to the bot, putting someone “in jail” opens the doors to a wide variety of possibilities. While the initial concept has its advantages, I’d like to create my own version of the bot to allow for more creativity and variety.
 
 ## Goals
 
-To be able to jail my friends in a variety of ways: Because it’s fun.  And funny.  And variety is the spice of life.
+To be able to jail my friends in a variety of ways: Because it’s fun.  And funny.  And variety is the spice of life. 
 To have fun at someone else’s expense: I wouldn’t love you if I didn’t haze you.  😉
 
 ## Feature List
 
 1. !jail <user> <option> places a user in jail
 2. !jail <user> <option> will decorate bars and or profile pic ... effectively placing user in jail, but decoratively
-
-	
-
-# Discord bot example
-
-Read this [article](https://thomlom.dev/create-a-discord-bot-under-15-minutes/) to fully understand what this is about 😃
-
-## Getting started
-
-1. Clone this repository
-2. Run `npm install`
-3. Grab a token on [Discord's developer portal](https://discordapp.com/developers/applications)
-4. Create a `.env` file and add a `BOT_TOKEN` environmental variable whose value is the token above.
-5. Run `npm run dev`
 
 
