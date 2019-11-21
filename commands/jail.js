@@ -1,50 +1,29 @@
-module.exports = message => {
-  const Discord = require('discord.js');
-  const Canvas  = require('canvas');
+const Discord    = require('discord.js');
+const Canvas     = require('canvas');
+const globals    = require('../lib/globals');
+const jailMsg    = require('../lib/JailRandomPutList');
 
-  // TODO clean up aand separate out code!
-
+module.exports = {
   // TODO internationalize
-
-  // TODO all strings to file
-
-  // what member shall we shove down the rabbit hole today?
-  const member = message.mentions.members.first();
-
-  // default command reminder
-  const commandReminder = '!jail @<user>';
-
-  // TODO put this in a utility file
-  const DISCORD_INVITE = 'https://discord.gg/9RZXnJ3';
-
-  // who are you trying to jail?  random ways to say this
-  // TODO this const will need it's own file
-  const putJailArray = [
-    'put in the klink',
-    'throw in the slammer',
-    'toss in jail',
-    'dungeonize'
-  ];
-  const randomPutJail = () => {
-    return putJailArray[ Math.floor(Math.random() * putJailArray.length) ];
-  };
-
-  const getJailedCanvas = async (user) => {
-    const userProfile = user.displayAvatarURL;
+  // TODO should look for options.  if none, defaults to default bars
+  // message.js looks for command. here, the message needs to be split into array.  [0]command [1]user [2+] options
+  displayJailedCanvas: async (message, user, jailBarsImage) => {
     const canvasSize  = 300;
+    const userProfile = user.displayAvatarURL;  // avatar pic
+    const userName    = (user.nick) ? user.nick : user.username;
 
-    // Set a new canvas to the dimensions of 700x250 pixels
+    // Set a new canvas to the dimensions pixels
     const canvas = Canvas.createCanvas(canvasSize, canvasSize);
     const ctx    = canvas.getContext('2d');
 
     // Since the images takes time to load, you should await it
     // Wait for Canvas to load the images
     const avatar   = await Canvas.loadImage( userProfile );
-    const jailBars = await Canvas.loadImage( './images/jailuser-default.png' );
+    const jailBars = await Canvas.loadImage( './images/' + jailBarsImage );
 
     // This uses the canvas dimensions to stretch the image onto the entire canvas
     ctx.globalAlpha = 0.4;      // set transparency value
-    ctx.drawImage(avatar, 0, 0, canvasSize, canvasSize);
+    ctx.drawImage(avatar, 0, 0, canvasSize, canvasSize); 
 
     // Overlay gradient darkening circle
     const mid = canvasSize / 2;
@@ -65,26 +44,10 @@ module.exports = message => {
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'jailed-user-image.png');
 
     // send message with updated image
-    const userName = (user.nick) ? user.nick : user.username;
-    message.channel.send(`${userName} is very JAILED! XD
+    message.channel.send(`${userName} has been ${jailMsg.randomJailMessage(jailMsg.PAST)}! XD
 Have an idea for a new image option?  Post it on our #jail-bot-suggestions channel on our Discord server, and we’ll look into it!`,
 attachment
     )
-    .catch(`Error: ${console.error}`);
-  };
-
-  // member check first.  make sure there is a member listed.
-  // if pass, commence the jailing
-  if (member === undefined) 
-  {
-    return message.reply( `Who are you trying to ${randomPutJail()}? You must mention a member of this server.\n${commandReminder}` );
-  } 
-  else if (!member) 
-  {
-    return message.reply( `I don't recognize that member. Who are you trying to ${randomPutJail()}?\n${commandReminder}` );    
-  } 
-  else 
-  {
-    getJailedCanvas( member.user );
+     .catch(`Error: ${console.error}`);
   }
 };
