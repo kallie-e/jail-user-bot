@@ -54,7 +54,7 @@ module.exports = (client, message) => {
 			}
 
 			// if pass, commence the jailing
-			jail.displayJailedCanvas( message, member.user, options[jailOption].imageBars );
+			jail.displayJailedCanvas( message, member.user, options[jailOption] );
 		}
 	}
 }; 
