@@ -12,14 +12,20 @@ There is currently a Discord bot that does this, but a) the jail feature is one 
 * To have fun at someone else’s expense. I wouldn’t love you if I didn’t haze you.  😉
 
 ## Feature List
+### Commands
+<b>!jail \@\<user\></b>: places a user in jail   
+<b>!jail \@\<user\> \<option\></b>: will decorate bars and\\or profile pic, effectively placing user in jail ... but decoratively    
+<b>!jail help</b>: lists all the currently available commands and options  
 
-1. !jail \<user\> \<option\> places a user in jail
-2. !jail \<user\> \<option\> will decorate bars and or profile pic, effectively placing user in jail ... but decoratively  
-
-## Options  
-<b>!jail \<user\></b>: place user in jail ... but the boring way  
-<b>!jail \<user\> default</b>: same as above, but for the OCD in us  
-(more options coming soon!)  
+### Options  
+<b>default</b>: Put a member in jail ... albeit in a boring way  
+<b>columns</b>: Put a member behind decorative columns  
+<b>dungeon</b>: Put a member behind a dungeon door  
+<b>gate</b>: Put a member behind a rusty gate  
+<b>egypt</b>: Put a member behind Egyptian columns  
+<b>rickroll</b>: Rick Roll a member  
+<b>tardis</b>: Put a member in a big blue box  
+<b>random</b>: Put a member in jail ... but we get to pick how  
 
 ## Note    
 
