@@ -58,7 +58,7 @@ module.exports = (client, message) => {
 			}
 
 			// if the parameter list is empty, assume 'default'
-			let jailOption = (msgArray.length < 3) ? globals.Commands.Default : msgArray[2];
+			let jailOption = ((msgArray.length < 3) ? globals.Commands.Default : msgArray[2]).toLowerCase();
 
 			// is this a specilized option?
 			if(jailOption === globals.Commands.Random)   
