@@ -11,6 +11,14 @@ There is currently a Discord bot that does this, but a) the jail feature is one 
 * To be able to jail my friends in a variety of ways. Because it’s fun.  And funny.  And variety is the spice of life. 
 * To have fun at someone else’s expense. I wouldn’t love you if I didn’t haze you.  😉
 
+## Samples  
+  
+<img src="https://cdn.discordapp.com/attachments/646553142527393793/647857879822499840/jailed-user-image.png" width="150" /> 
+<img src="https://cdn.discordapp.com/attachments/646553142527393793/647888141604356096/jailed-user-image.png" width="150" /> 
+<img src="https://cdn.discordapp.com/attachments/646553142527393793/647860401819746324/jailed-user-image.png" width="150" /> 
+<img src="https://cdn.discordapp.com/attachments/646553142527393793/647887854294401034/jailed-user-image.png" width="150" /> 
+
+  
 ## Feature List
 ### Commands
 <b>!jail \@\<user\></b>: places a user in jail   
