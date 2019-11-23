@@ -1,14 +1,14 @@
 {
   "name": "jail-user-bot",
-  "version": "0.0.1",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Sometimes you just wanna give someone a hard time... like putting someone in a virtual jail. It’s a great way to blow off steam, and it can be downright hilarious for all involved and all who witness the event.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["bot", "fun", "jail", "joke"],
+  "author": "Kallie Experiments",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2",

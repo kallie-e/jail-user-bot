@@ -16,6 +16,7 @@ module.exports = {
 		'Default_Annc' : '', 
 		'Default_Text' : '', 
 		'Default_Desc' : 'Put a member in jail ... albeit in a boring way', 
+		'Random_Desc'  : 'Put a member in jail ... but we get to pick how', 
 		'Columns1_Annc' : '', 
 		'Columns1_Text' : '', 
 		'Columns1_Desc' : 'Put a member behind decorative columns', 
