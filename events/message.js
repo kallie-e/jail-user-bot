@@ -1,11 +1,26 @@
 const globals    = require('../lib/globals');
 const jail       = require("../commands/jail");
-const jailMsg    = require('../lib/JailRandomPutList');
+const jailMsg = require('../lib/JailRandomPutList');
 const options    = require('../lib/JailBarOptions');
 
+function getOptionList() {
+	let msg = 
+`${globals.i18n.Message.Commands}...
+${globals.CmdRemind}
+${globals.CmdRemindOption}
+
+${globals.i18n.Message.OptionList}...
+`;
+
+	for (const key in options) {
+	  if( !options[key].hidden ) msg += `${key} - ${options[key].description}\n`;
+	}
+
+	return msg;
+}
+
 module.exports = (client, message) => {
-	// !TODO internationalize
-	if (message.content.startsWith( globals.JAIL_CMD )) {		
+	if (message.content.startsWith( globals.JailCmd )) {		
 		// what member shall we shove down the rabbit hole today?
 		const member   = message.mentions.members.first();
 		const msgArray = message.content.split(' ');
@@ -14,26 +29,22 @@ module.exports = (client, message) => {
 		if (member === undefined) 
 		{
 			// asking for help maybe?
-			if(msgArray[1] === 'help') 
+			if(msgArray[1] === globals.Commands.Help) 
 			{
-				let msg = `Option list...\n${globals.CMD_REMIND}: ${options.default.description}\n`;
 
-				for (const key in options) {
-				  if( !options[key].hidden ) msg += `${globals.CMD_REMIND} ${key}: ${options[key].description}\n`;
-				}
-
-				return message.channel.send( msg );
+				return message.channel.send( getOptionList() );
 			} 
 			else 
 			{
 				// if not asking for help, and didn't list a member ... like ... at all .... 
-				return message.channel.send( `Who are you trying to ${jailMsg.randomJailMessage(jailMsg.PRESENT)}? You must mention a member of this server.\n${globals.CMD_REMIND_OPTION}` );				
+
+				return message.channel.send( `${globals.i18n.Message.WhoTryingToJail} ${jailMsg.randomJailMessage(jailMsg.PRESENT)}?\n${globals.CmdRemindOption}` );				
 			}
 		} 
 		else if (!member) 
 		{
 			// tried to list a member, but no idea who ya talkin' about
-			return message.channel.send( `I don't recognize that member. Who are you trying to ${jailMsg.randomJailMessage(jailMsg.PRESENT)}?\n${globals.CMD_REMIND_OPTION}` );    
+			return message.channel.send( `${globals.i18n.Message.DontRecognizeMember} ${jailMsg.randomJailMessage(jailMsg.PRESENT)}?\n${globals.CmdRemindOption}` );    
 		} 
 		else 
 		{
@@ -41,16 +52,16 @@ module.exports = (client, message) => {
 			// did they put any member name after the cmd? (member name is returned as hash eg. <@0123456789>
 			if(msgArray[1].indexOf('@') < 0 ) 
 			{
-				return message.channel.send( `Please use the following format: ${globals.CMD_REMIND_OPTION}` );    
+				return message.channel.send( `${globals.i18n.Message.PleaseUseFormat}: ${globals.CmdRemindOption}` );    
 			}
 
 			// if the parameter list is empty, assume 'default'
-			const jailOption = (msgArray.length < 3) ? 'default' : msgArray[2];
+			const jailOption = (msgArray.length < 3) ? globals.Commands.Default : msgArray[2];
 
 			// is this a valid command?
 			if(!options[jailOption]) 
 			{
-				return message.channel.send( `This option current doesn't exists. Option list is coming soon.....` );    
+				return message.channel.send( `${globals.i18n.Message.OptionDoesNotExist}.\n\n${getOptionList()}` );    
 			}
 
 			// if pass, commence the jailing
