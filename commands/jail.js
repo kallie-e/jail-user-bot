@@ -5,7 +5,6 @@ const jailMsg    = require('../lib/JailRandomPutList');
 const options    = require('../lib/JailBarOptions');
 
 module.exports = {
-  // !TODO internationalize
   // message.js looks for command. here, the message needs to be split into array.  [0]command [1]user [2+] options
   displayJailedCanvas: async (message, user, jailOptions) => {
     const canvasSize  = 300;
@@ -40,13 +39,13 @@ module.exports = {
     // draw the bars
     ctx.drawImage(jailBars, 0, 0, canvas.width, canvas.height);
 
-    // Use helpful Attachment class structure to process the file for you
+    // Use helpful Attachment class structure to process the file for you (using generic name)
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'jailed-user-image.png');
 
     // send message with updated image
-    const msg = (jailOptions.announcement.trim().length > 0) ? jailOptions.announcement : `${userName} has been ${jailMsg.randomJailMessage(jailMsg.PAST)}! XD`;
-    const msgIdea = `\nPlease feel free to test and try to break this.  Have an idea for a new image option?  Post it here!  The possibilities are endless, and I'm still adding.  Thanks!`;
+    const msg     = (jailOptions.announcement.trim().length > 0) ? jailOptions.announcement : `${userName} ${jailMsg.randomJailMessage(jailMsg.PAST)}!`;
+    const msgIdea = globals.i18n.Jail.MsgIdea;
 
-    message.channel.send( `${msg}${msgIdea}`, attachment ).catch(`Error: ${console.error}`);
+    message.channel.send( `${msg}\n\n${msgIdea}`, attachment ).catch(`Error: ${console.error}`);
   }
 };
