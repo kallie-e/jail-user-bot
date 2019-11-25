@@ -18,7 +18,7 @@ module.exports = {
     // Since the images takes time to load, you should await it
     // Wait for Canvas to load the images
     const avatar   = await Canvas.loadImage( userProfile );
-    const jailBars = await Canvas.loadImage( './images/' + jailOptions.imageBars );
+    const jailBars = await Canvas.loadImage( globals.ImageFolder + jailOptions.imageBars )
 
     // This uses the canvas dimensions to stretch the image onto the entire canvas
     ctx.globalAlpha = 0.4;      // set transparency value
