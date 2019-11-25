@@ -18,7 +18,7 @@ module.exports = {
     // Since the images takes time to load, you should await it
     // Wait for Canvas to load the images
     const avatar   = await Canvas.loadImage( userProfile );
-    const jailBars = await Canvas.loadImage( './images/' + jailOptions.imageBars );
+    const jailBars = await Canvas.loadImage( globals.ImageFolder + jailOptions.imageBars )
 
     // This uses the canvas dimensions to stretch the image onto the entire canvas
     ctx.globalAlpha = 0.4;      // set transparency value
@@ -44,8 +44,8 @@ module.exports = {
 
     // send message with updated image
     const msg     = (jailOptions.announcement.trim().length > 0) ? jailOptions.announcement : `${userName} ${jailMsg.randomJailMessage(jailMsg.PAST)}!`;
-    const msgIdea = globals.i18n.Jail.MsgIdea;
+    const msgIdea = ''; //globals.i18n.Jail.MsgIdea;
 
-    message.channel.send( `${msg}\n\n${msgIdea}`, attachment ).catch(`Error: ${console.error}`);
+    message.channel.send( `${msg}\n${msgIdea}`, attachment ).catch(`Error: ${console.error}`);
   }
 };
