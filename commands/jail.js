@@ -44,8 +44,8 @@ module.exports = {
 
     // send message with updated image
     const msg     = (jailOptions.announcement.trim().length > 0) ? jailOptions.announcement : `${userName} ${jailMsg.randomJailMessage(jailMsg.PAST)}!`;
-    const msgIdea = globals.i18n.Jail.MsgIdea;
+    const msgIdea = ''; //globals.i18n.Jail.MsgIdea;
 
-    message.channel.send( `${msg}\n\n${msgIdea}`, attachment ).catch(`Error: ${console.error}`);
+    message.channel.send( `${msg}\n${msgIdea}`, attachment ).catch(`Error: ${console.error}`);
   }
 };
