@@ -35,6 +35,15 @@ There is currently a Discord bot that does this, but a) the jail feature is one 
 <b>tardis</b>: Put a member in a big blue box  
 <b>random</b>: Put a member in jail ... but we get to pick how  
 
+## Discord Link
+NOTE: This bot was a side project to play and test certain skills and tools.  It is NOT on a 24/7 server, and it is not monitored.  The bot is active only when I remember to activate it, and even then I may or may not be paying attention to it.
+
+YOU HAVE BEEN WARNED. USE AT YOUR OWN RISK!
+ 
+https://discordapp.com/api/oauth2/authorize?client_id=646552131201138701&permissions=2048&scope=bot
+
+You are welcome to contact me (Kaliadder) at my Discord server: https://discordapp.com/invite/9RZXnJ3
+
 ## Note    
 
 The code is (loosely) based off of the "Discord bot example" by Thomlom, and can be found here:   
